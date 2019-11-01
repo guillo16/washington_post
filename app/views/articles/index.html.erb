@@ -1,0 +1,13 @@
+<% @categories.each do |category| %>
+<%= link_to category_path(category)  do%>
+<%= category.name %>
+<% end %>
+<% end %>
+
+<h1> Index articles</h1>
+
+<h3><%= @articles.last.title %></h3>
+
+<% @articles.each do |article|  %>
+  <%= article.title %>
+  <% end %>
