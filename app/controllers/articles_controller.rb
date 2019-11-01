@@ -11,10 +11,12 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    @categories = Category.all.map { |c| [c.name, c.id] }
   end
 
   def create
     @article = Article.new(article_params)
+    @article.category_id = params[:category_id]
     @article.user = current_user
     if @article.save
       redirect_to articles_path
