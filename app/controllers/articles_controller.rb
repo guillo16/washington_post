@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
   before_action :set_articles, only: [:show, :edit, :update, :destroy]
   def index
     @articles = Article.all
+    @categories = Category.all
   end
 
   def show
