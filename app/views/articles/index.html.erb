@@ -6,6 +6,8 @@
 
 <h1> Index articles</h1>
 
+<h3><%= @articles.last.title %></h3>
+
 <% @articles.each do |article|  %>
   <%= article.title %>
   <% end %>
