@@ -1,15 +1,13 @@
 <%= render 'shared/navbar' %>
 <h2><%= @category.name %></h2>
-
-<div class="main-cards">
-  <% @category.articles.reverse.drop(5).each do |t|  %>
-    <%= t.title %>
-  <% end %>
-
-</div>
-
 <div class="cards">
   <% @category.articles.last(5).reverse_each do |article| %>
   <%= render 'shared/cards', article: article %>
   <% end %>
 </div>
+<div class="main-cards">
+  <% @category.articles.reverse.drop(5).each do |article|  %>
+    <%= article.title %>
+  <% end %>
+</div>
+

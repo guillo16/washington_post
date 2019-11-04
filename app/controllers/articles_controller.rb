@@ -35,7 +35,6 @@ class ArticlesController < ApplicationController
     else
       render :new
     end
-
   end
 
   def destroy
@@ -54,6 +53,6 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :subtitle, :content_1, :content_2, :content_3, :content_4)
+    params.require(:article).permit(:title, :subtitle, :content_1, :content_2, :content_3, :content_4, :photo1, :photo2, :photo3)
   end
 end

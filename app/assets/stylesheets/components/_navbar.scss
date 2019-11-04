@@ -18,28 +18,28 @@
 
 .nav-item {
 
-
-  }
   a {
     color: black;
     // font-weight: bold;
     font-size: 16px;
     text-decoration: none;
-     &:hover {
-    color: grey;
-    text-decoration: none;
+    &:hover {
+      color: grey;
+      text-decoration: none;
+    }
   }
+
 }
 
 
 @media (min-width: 576px) {
  .nav-item {
   display: none;
- }
+}
 
- .navbar-lewagon {
+.navbar-lewagon {
   justify-content: center;
- }
+}
 }
 
 .navbar-2 {
