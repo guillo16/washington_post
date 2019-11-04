@@ -1,13 +1,19 @@
 <%= render 'shared/navbar' %>
-<h2><%= @category.name %></h2>
-<div class="cards">
-  <% @category.articles.last(5).reverse_each do |article| %>
-  <%= render 'shared/cards', article: article %>
-  <% end %>
+<div class="article-wrapper">
+  <h2 class="cards-title"><%= @category.name %></h2>
+  <div class="cards">
+    <% @category.articles.last(4).reverse_each do |article| %>
+    <%= render 'shared/cards', article: article %>
+    <% end %>
+  </div>
+  <div class="main-cards">
+    <% @category.articles.reverse.drop(4).each do |article|  %>
+    <%= render 'shared/cards_2', article: article %>
+    <% end %>
+  </div>
+   <div class="bottom-cards">
+    <% @category.articles.reverse_each do |article|  %>
+    <%= render 'shared/cards_bottom', article: article %>
+    <% end %>
+  </div>
 </div>
-<div class="main-cards">
-  <% @category.articles.reverse.drop(5).each do |article|  %>
-    <%= article.title %>
-  <% end %>
-</div>
-
