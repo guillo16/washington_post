@@ -1,19 +1,34 @@
- <div class="navbar d-flex justify-content-between p-3">
-  <%= link_to "back to index", root_path  %>
-  <% if user_signed_in? %>
-  <%= link_to "back to index", root_path  %>
+ <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to root_path, class: "navbar-brand" do %>
+  <%= image_tag "https://res.cloudinary.com/dw7ox75dg/image/upload/v1559327622/Captura_de_Pantalla_2019-05-31_a_la_s_15.33.10.png" %>
+  <% end %>
 
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
 
-  <% else %>
-  <h2> hola</h2>
+     <% @categories.each do |category| %>
+     <li class="nav-item active">
+       <%= link_to category_path(category)  do%>
+
+       <%= category.name %>
+
+       <% end %>
+     </li>
+     <% end %>
+
+   </ul>
+ </div>
+</div>
+<div class="navbar-2">
+
   <% @categories.each do |category| %>
   <%= link_to category_path(category)  do%>
   <%= category.name %>
   <% end %>
   <% end %>
-
-  <% end %>
-
 </div>
 
 
