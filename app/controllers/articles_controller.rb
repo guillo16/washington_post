@@ -1,9 +1,9 @@
 class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_articles, only: [:show, :edit, :update, :destroy]
+  before_action :set_categories, only: [:index, :show]
   def index
     @articles = Article.all
-    @categories = Category.all
   end
 
   def show
@@ -35,7 +35,6 @@ class ArticlesController < ApplicationController
     else
       render :new
     end
-
   end
 
   def destroy
@@ -49,7 +48,11 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
+  def set_categories
+    @categories = Category.all
+  end
+
   def article_params
-    params.require(:article).permit(:title, :subtitle, :content_1, :content_2, :content_3, :content_4)
+    params.require(:article).permit(:title, :subtitle, :content_1, :content_2, :content_3, :content_4, :photo1, :photo2, :photo3)
   end
 end

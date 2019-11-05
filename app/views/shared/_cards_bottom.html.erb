@@ -1,0 +1,11 @@
+<%= link_to article_path(article) do %>
+<div class="cards-bottom-container">
+  <div class="card-bottom-title">
+    <h2><%= article.title %></h2>
+    <p><%= article.subtitle %></p>
+  </div>
+  <div class="card-bottom-image">
+    <img src="<%= article.photo1 %> " alt="">
+  </div>
+</div>
+<% end %>
