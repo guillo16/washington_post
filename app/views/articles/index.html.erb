@@ -1,6 +1,6 @@
 <%= render 'shared/navbar' %>
 <% @categories.each do |category| %>
-<%= link_to category_path(category)  do%>
+<%= link_to category_path(category) do %>
 <%= category.name %>
 <% end %>
 <% end %>

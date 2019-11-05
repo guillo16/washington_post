@@ -56,7 +56,7 @@
 @media(max-width: 600px) {
   .cards{
     display: grid;
-  grid-template-columns: 1fr ;
+    grid-template-columns: 1fr ;
   }
 }
 
@@ -92,13 +92,50 @@
 }
 .card-2-image {
   padding: 20px;
-img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
+  img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
 }
+// CARDS bottom
+.bottom-cards {
+  margin-top: 20px;
+  border-top: 3px solid black;
 }
 
+.cards-bottom-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid lightgrey;
+  background-color: white;
+
+}
+.card-bottom-title {
+  padding: 20px;
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  p {
+    color: #333333;
+    font-size: 13px;
+  }
+}
+
+.card-bottom-image {
+  padding: 20px;
+  img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+  }
+}
 
 
 
