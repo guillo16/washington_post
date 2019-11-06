@@ -2,21 +2,28 @@
 <div class="article-wrapper">
   <h2 class="cards-title"><%= @category.name %></h2>
   <div class="cards">
-    <% @category.articles.last(4).reverse_each do |article| %>
+    <% @category.articles.last(2).reverse_each do |article| %>
     <%= render 'shared/cards', article: article %>
     <% end %>
   </div>
   <div class="main-cards">
-    <% @category.articles.reverse.drop(4).each do |article|  %>
+    <% @category.articles.last(10).reverse.drop(2).each do |article|  %>
     <%= render 'shared/cards_2', article: article %>
     <% end %>
   </div>
   <div class="banner-2">
     <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80" alt="">
   </div>
-   <div class="bottom-cards">
-    <% @category.articles.reverse_each do |article|  %>
-    <%= render 'shared/cards_bottom', article: article %>
-    <% end %>
+  <div class="bottom-wrapper">
+    <div class="bottom-adds">
+      <img src="https://i.pinimg.com/originals/9c/64/33/9c643336b7971d71e959bfa21333828c.png" alt="">
+      <img src="https://i.pinimg.com/originals/9c/64/33/9c643336b7971d71e959bfa21333828c.png" alt="">
+      <img src="https://i.pinimg.com/originals/9c/64/33/9c643336b7971d71e959bfa21333828c.png" alt="">
+    </div>
+    <div class="bottom-cards">
+      <% @category.articles.reverse_each do |article|  %>
+      <%= render 'shared/cards_bottom', article: article %>
+      <% end %>
+    </div>
   </div>
 </div>
