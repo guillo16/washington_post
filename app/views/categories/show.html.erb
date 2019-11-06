@@ -2,12 +2,12 @@
 <div class="article-wrapper">
   <h2 class="cards-title"><%= @category.name %></h2>
   <div class="cards">
-    <% @category.articles.last(4).reverse_each do |article| %>
+    <% @category.articles.last(2).reverse_each do |article| %>
     <%= render 'shared/cards', article: article %>
     <% end %>
   </div>
   <div class="main-cards">
-    <% @category.articles.reverse.drop(4).each do |article|  %>
+    <% @category.articles.last(10).reverse.drop(2).each do |article|  %>
     <%= render 'shared/cards_2', article: article %>
     <% end %>
   </div>
