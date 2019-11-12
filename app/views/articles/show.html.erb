@@ -7,11 +7,20 @@
   <h1><%= @article.title %></h1>
   <h3><%= @article.subtitle %></h3>
   <img src="<%= @article.photo1 %> " alt="">
+  <h4><%= @article.footer_1 %></h4>
+  <div class="user-avatar d-flex align-items-center">
+    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80" alt="">
+    <h2>By <%= @article.user.email %></h2>
+  </div>
+  <div class="articles-time ">
+    <p><%= @article.created_at.strftime("%b. %d, %Y  Updated %I:%M %P ET")%></p>
+  </div>
   <p><%= @article.content_1 %></p>
   <img src="<%= @article.photo2 %> " alt="">
+  <h4><%= @article.footer_2 %></h4>
   <p><%= @article.content_2 %></p>
   <img src="<%= @article.photo3 %> " alt="">
-  <p><%= @article.content_3 %> </p>
+  <p><%= @article.content_3 %></p>
 </div>
 <h3>ultimas noticias</h3>
 <div class="articles-index">

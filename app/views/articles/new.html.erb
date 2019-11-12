@@ -8,8 +8,11 @@
 <%= f.input :content_2 %>
 <%= f.input :content_3 %>
 <%= f.input :photo1 %>
+<%= f.input :footer_1 %>
 <%= f.input :photo2 %>
+<%= f.input :footer_2 %>
 <%= f.input :photo3 %>
+<p>importante no olvidar poner categoria</p>
 <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Categories") %>
 <%= f.submit %>
 <% end %>
