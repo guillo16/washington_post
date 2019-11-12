@@ -22,7 +22,7 @@
   <img src="<%= @article.photo3 %> " alt="">
   <p><%= @article.content_3 %></p>
 </div>
-<h3>ultimas noticias</h3>
+<h3 class="title">More news</h3>
 <div class="articles-index">
   <% @articles.last(3).each do |article|  %>
   <%= render 'shared/articles_cards', article: article %>
