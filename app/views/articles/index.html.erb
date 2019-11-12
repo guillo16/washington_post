@@ -7,8 +7,16 @@
 
 <h1> Index articles</h1>
 
-<h3><%= @articles.last.title %></h3>
+<%= @articles.last.title  %>
 
-<% @articles.each do |article|  %>
-  <%= article.title %>
-  <% end %>
+<h1> sexundareio</h1>
+
+
+<% @articles.last(3).reverse.drop(1).each do |article| %>
+  <h3><%= article.title %></h3>
+<% end %>
+ <h3>si senores</h3>
+
+<% @articles.last(10).reverse.drop(3).each do |article|  %>
+    <h4><%= article.title %></h4>
+    <% end %>
