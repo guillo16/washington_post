@@ -1,3 +1,29 @@
 <%= render 'shared/navbar' %>
-<h1>Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
+<% if user_signed_in? %>
+<%= link_to "edit", edit_article_path(@article)  %>
+<%end%>
+<div class="article-container">
+  <h2><%= @article.category.name %></h2>
+  <h1><%= @article.title %></h1>
+  <h3><%= @article.subtitle %></h3>
+  <img src="<%= @article.photo1 %> " alt="">
+  <p><%= @article.content_1 %></p>
+  <img src="<%= @article.photo2 %> " alt="">
+  <p><%= @article.content_2 %></p>
+  <img src="<%= @article.photo3 %> " alt="">
+  <p><%= @article.content_3 %> </p>
+</div>
+<h3>ultimas noticias</h3>
+<div class="articles-index">
+  <% @articles.last(3).each do |article|  %>
+  <%= render 'shared/articles_cards', article: article %>
+  <% end %>
+</div>
+<h3>tambien</h3>
+<div class="articles-index">
+  <% @articles.sample(3).each do |article|  %>
+  <%= render 'shared/articles_cards', article: article %>
+  <% end %>
+</div>
+
+
