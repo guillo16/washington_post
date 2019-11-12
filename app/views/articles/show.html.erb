@@ -25,5 +25,15 @@
   <%= render 'shared/articles_cards', article: article %>
   <% end %>
 </div>
+<div class="articles-footer">
+  <ul class="list-group">
+    <li class="list-group-item"><%= image_tag "https://res.cloudinary.com/dw7ox75dg/image/upload/v1559327622/Captura_de_Pantalla_2019-05-31_a_la_s_15.33.10.png" %></li>
+    <% @categories.each do |category| %>
+    <li class="list-group-item"><%= link_to category.name, category_path(category) %></li>
+    <% end %>
+  </ul>
+</div>
+
+
 
 

@@ -28,21 +28,22 @@
 
     h1 {
       font-size: 31px;
-      padding-left: 10px;
-      padding-right: 10px;
+      padding-left: 15px;
+      padding-right: 15px;
       font-weight: bold;
     }
 
     h2 {
       font-weight: bold;
       font-size: 22px;
-      padding: 10px;
+      padding: 15px;
     }
 
     h3 {
-      padding-left: 10px;
-      padding-right: 10px;
+      padding-left: 15px;
+      padding-right: 15px;
       font-size: 18px;
+      color: #333;
     }
 
     img {
@@ -52,6 +53,7 @@
     }
     p {
       padding: 10px;
+      margin-bottom: 0px;
     }
   }
 }
@@ -80,5 +82,14 @@
     height: 300px;
     object-fit: cover;
     margin-bottom: 10px;
+  }
+}
+
+// articles footer
+
+.articles-footer {
+  img {
+    width: 200px;
+    margin-left: -8px;
   }
 }
