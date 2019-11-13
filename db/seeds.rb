@@ -9,6 +9,11 @@
 puts 'clearing database'
 Article.destroy_all
 Category.destroy_all
+puts 'creating user'
+
+User.create(email: "guillo@hotmail.com", password: 123456)
+User.create(email: "guillo1@hotmail.com", password: 123456)
+User.create(email: "guillo2@hotmail.com", password: 123456)
 
 puts 'creating categories'
 
@@ -17,27 +22,44 @@ sports = Category.create(name: 'Sports')
 tech = Category.create(name: 'Tech')
 world = Category.create(name: 'World')
 us = Category.create(name: 'Us')
+tech = Category.create(name: 'Tech')
+business = Category.create(name: 'Business')
+television = Category.create(name: 'Television')
+travel = Category.create(name: 'Travel')
 
 puts 'creating articles'
 
 users = User.all.sample
 
 20.times do
-  categories = [ politics, sports, tech, world, us].sample
+  categories = [ politics, sports, tech, world, us, travel, television, tech, business].sample
+  photos = ["https://www.infobae.com/new-resizer/jVZFKTSmidMxftMBx3Bh5p8c-MA=/750x0/filters:quality(100)/arc-anglerfish-arc2-prod-infobae.s3.amazonaws.com/public/OFSBC4XLZNHAXBQ2COBY3RI5NQ.jpg",
+    "https://www.infobae.com/new-resizer/3kDdimZlhzpJJOZzaiZwskSlm5E=/750x0/filters:quality(100)/arc-anglerfish-arc2-prod-infobae.s3.amazonaws.com/public/ZOWJEWYHZ5FLJEFFKPJ2NTRPCI.jpg",
+    "https://www.infobae.com/new-resizer/hisEMBAxGcM1NWUadjpzo6nbld8=/750x0/filters:quality(100)/arc-anglerfish-arc2-prod-infobae.s3.amazonaws.com/public/2K7SHTG2RZFY7KG4Y2H27KBZYM.jpg",
+    "https://www.infobae.com/new-resizer/g9IFbzILPB-_xTrY5Li_O7hp-_k=/750x0/filters:quality(100)/arc-anglerfish-arc2-prod-infobae.s3.amazonaws.com/public/KIS7C3ZZX5BGNNT3OQLUP54OWY.jpeg",
+    "https://www.infobae.com/new-resizer/eTd0Uc3fEOZzfu4NI8I9qC1e600=/750x0/filters:quality(100)/arc-anglerfish-arc2-prod-infobae.s3.amazonaws.com/public/5WHHKTA3TVARLCISB2YAVGZTSA.jpg",
+    "https://static01.nyt.com/images/2019/11/12/sports/12kaepernick1/merlin_143279871_d97edf53-bb9c-4dba-b119-3d8fbae810b0-threeByTwoMediumAt2X.jpg",
+    "https://static01.nyt.com/images/2019/11/12/sports/12astros2/merlin_129577400_14cc9adb-7b53-45ca-8644-d7f58f1df5fd-threeByTwoMediumAt2X.jpg",
+    "https://static01.nyt.com/images/2019/11/12/sports/12nfl-mnf/merlin_164247030_ad553da4-4b90-403d-8658-4ce6e2752a06-threeByTwoMediumAt2X.jpg",
+    "https://static01.nyt.com/images/2019/11/13/business/13Techfix-illo/13Techfix-illo-threeByTwoMediumAt2X.jpg",
+    "https://static01.nyt.com/images/2019/11/12/us/undefined-promo-1573597553718/undefined-promo-1573597553718-threeByTwoMediumAt2X.png",
+    "https://www.infobae.com/new-resizer/_cXlQbTSsvrw8M1qdmlWFIyXhQs=/750x0/filters:quality(100)/arc-anglerfish-arc2-prod-infobae.s3.amazonaws.com/public/JCPPFLYNDBCIXNA76X3V32LOGM.jpg",
+    "https://www.infobae.com/new-resizer/C1APk0aHEUkN1Ec_t4rXDrRlq74=/750x0/filters:quality(100)/arc-anglerfish-arc2-prod-infobae.s3.amazonaws.com/public/2H2OBP2WENALBIQL2JYZTIYEBE.jpg"
+  ].sample
 
-Article.create!(title: 'Invitados de lujo, sorpresas y alta costura: la celebración de los 25 años de trayectoria de Claudio Cosano',
- subtitle:'El diseñador argentino realizó una muestra de sus vestidos más icónicos acompañada de un espectacular desfile con las creaciones que marcaron cada etapa de su carrera. Con la presencia de Susana Giménez y la familia Messi en primera fila, los momentos más importantes de una noche mágica',
- photo: 'https://static01.nyt.com/images/2019/11/01/multimedia/01AlvaradoES-1/merlin_152292138_777f0ef5-414f-457f-b1ae-590d108e9837-superJumbo.jpg?quality=90&auto=webp',
- photo1:'https://www.infobae.com/new-resizer/FNkrVjHLggHc5foP93iR4yW1AjU=/750x0/filters:quality(100)/s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/06/10224028/Vestidos-Cosano-Desfile-Silkey-52.jpg',
- photo2:'https://www.infobae.com/new-resizer/EmCu_by5vN9qh2a0NAKuGZFTDK8=/750x0/filters:quality(100)/s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/06/10223944/Vestidos-Cosano-Desfile-Silkey-47.jpg',
- photo3:'https://www.infobae.com/new-resizer/3ySXjiqE352KfN6EO-ae2yPG8ic=/750x0/filters:quality(100)/s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/06/10231329/Gustavo_Gavotti_Fotoperiodismo_2019-06-10_20.29.03.jpg',
- photo4:'https://www.infobae.com/new-resizer/Ob06aewSWUR8fq-XDQ2rk24b0EQ=/750x0/filters:quality(100)/s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/06/10231337/Gustavo_Gavotti_Fotoperiodismo_2019-06-10_20.36.33.jpg',
- content_1:'Este 2019 tiene algo de especial en el mundo de la moda. En el marco de los 25 años de trayectoria, Claudio Cosano realizó una muestra de sus vestidos icónicos acompañada de un espectacular desfile con las creaciones que marcaron cada etapa de su carrera en el Centro de Convenciones de Buenos Aires y en el marco de los 50 años de Silkey.
- Con una exposición de 21 vestidos que usaron reconocidas figuras de la industria del modelaje, las personas pudieron ser testigos de las creaciones que marcaron un antes y un después en la carrera de Claudio Cosano. Desde Mirtha Legrand, Susana Giménez, Nicole Neumann, la familia Messi, Liz Solari, Wanda Nara, Teté Coustarot, Teresa Calandra, Nequi Galloti, entre otras diosas argentinas que eligieron al diseñador argentino repetidas veces.',
- content_2:'"Estoy muy contento y feliz con lo que se logró. Una exposición y puesta en escena impresionante. Además, el honor de tener a Susana Giménez y a la familia Messi en primera fila. Un vestido que no me voy a olvidar nunca: el del millón de Susana", dijo a Infobae Claudio Cosano. Autodidacta, obsesivo por la moldería y encandilado por los brillos bordados a mano, Cosano logró instalar su ADN en el universo de la moda femenina. Y al igual que la marca Silkey, su extensa carrera dejó una huella en el mundo fashionista.',
- content_3:'Los primeros en estrenar la pasarela fueron el director de la marca, Mauricio Wachs, la directora artística Elizabeth Yelin y Susana Giménez quienes brindaron unas palabras de aliento y emoción su querido amigo Claudio Cosano. "Queremos crear una mística del cuidado de la mujer y el hombre. Nos sentimos orgullosos y estamos felices", dijo Mauricio Wachs.',
- category: categories,
- user: users)
+  Article.create!(title: Faker::TvShows::Seinfeld.quote,
+   subtitle: Faker::TvShows::Simpsons.quote,
+   photo1: photos,
+   footer_1: Faker::TvShows::GameOfThrones.quote,
+   photo2: photos,
+   footer_2: Faker::TvShows::StrangerThings.quote,
+   photo3: photos,
+   photo4:'https://www.infobae.com/new-resizer/Ob06aewSWUR8fq-XDQ2rk24b0EQ=/750x0/filters:quality(100)/s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/06/10231337/Gustavo_Gavotti_Fotoperiodismo_2019-06-10_20.36.33.jpg',
+   content_1: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem at maiores modi iste eligendi iusto, nobis, earum! Provident excepturi optio libero, eligendi voluptates explicabo quisquam aliquid esse eos, vel doloremque.</div><div>Ratione magnam voluptatem aperiam repellat tempore obcaecati praesentium accusantium, quaerat eius, pariatur ex dignissimos commodi fugit id possimus repellendus inventore, reprehenderit porro velit eum corporis eos omnis molestiae. Adipisci, non!</div><div>Adipisci, iure quos quo excepturi tenetur veritatis iusto cumque voluptatum, asperiores vero obcaecati magnam consectetur voluptatibus suscipit animi quis deleniti deserunt delectus dicta! Dolorem id tempora qui, quae, minus quas? ",
+   content_2: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem at maiores modi iste eligendi iusto, nobis, earum! Provident excepturi optio libero, eligendi voluptates explicabo quisquam aliquid esse eos, vel doloremque.</div><div>Ratione magnam voluptatem aperiam repellat tempore obcaecati praesentium accusantium, quaerat eius, pariatur ex dignissimos commodi fugit id possimus repellendus inventore, reprehenderit porro velit eum corporis eos omnis molestiae. Adipisci, non!</div><div>Adipisci, iure quos quo excepturi tenetur veritatis iusto cumque voluptatum, asperiores vero obcaecati magnam consectetur voluptatibus suscipit animi quis deleniti deserunt delectus dicta! Dolorem id tempora qui, quae, minus quas?",
+   content_3: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem at maiores modi iste eligendi iusto, nobis, earum! Provident excepturi optio libero, eligendi voluptates explicabo quisquam aliquid esse eos, vel doloremque.</div><div>Ratione magnam voluptatem aperiam repellat tempore obcaecati praesentium accusantium, quaerat eius, pariatur ex dignissimos commodi fugit id possimus repellendus inventore, reprehenderit porro velit eum corporis eos omnis molestiae. Adipisci, non!</div><div>Adipisci, iure quos quo excepturi tenetur veritatis iusto cumque voluptatum, asperiores vero obcaecati magnam consectetur voluptatibus suscipit animi quis deleniti deserunt delectus dicta! Dolorem id tempora qui, quae, minus quas?",
+   category: categories,
+   user: users)
 end
 
 

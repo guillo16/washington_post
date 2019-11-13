@@ -1,26 +1,30 @@
 <%= render 'shared/navbar' %>
-<% @categories.each do |category| %>
-<%= link_to category_path(category) do %>
-<%= category.name %>
-<% end %>
-<% end %>
-
-<h1> Index articles</h1>
-
-<% @articles.last(1).each do |article|  %>
-<%= link_to article_path(article) do %>
-<%= article.title %>
-<% end %>
-<% end %>
-
-<h1> sexundareio</h1>
-
-
-<% @articles.last(3).reverse.drop(1).each do |article| %>
-  <h3><%= article.title %></h3>
-<% end %>
- <h3>si senores</h3>
-
-<% @articles.last(10).reverse.drop(3).each do |article|  %>
-    <h4><%= article.title %></h4>
+<h3 class="time"><%= Time.now.strftime("%A, %B %d, %Y") %></h3>
+<div class="main-articles-wrapper d-block d-md-flex">
+  <div class="main-articles">
+    <% @articles.last(1).each do |article|  %>
+    <%= link_to article_path(article) do %>
+    <img src="<%= article.photo1 %> " alt="">
+    <h2><%= article.title %></h2>
+    <h3><%= article.subtitle %> </h3>
     <% end %>
+    <% end %>
+  </div>
+  <div class="secondary-articles">
+    <% @articles.last(3).reverse.drop(1).each do |article| %>
+    <img src="<%= article.photo1 %> " alt="">
+    <h2><%= article.title %></h2>
+    <% end %>
+  </div>
+</div>
+<div class="middle-articles">
+  <% @articles.last(11).reverse.drop(3).each do |article|  %>
+  <%= link_to article_path(article) do %>
+  <div>
+    <img src="<%= article.photo1 %> " alt="">
+    <h4><%= article.title %></h4>
+  </div>
+  <% end %>
+  <% end %>
+</div>
+
