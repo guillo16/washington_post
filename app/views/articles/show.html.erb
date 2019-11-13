@@ -22,15 +22,30 @@
   <img src="<%= @article.photo3 %> " alt="">
   <p><%= @article.content_3 %></p>
 </div>
-<h3 class="title">More news</h3>
-<div class="articles-index">
-  <% @articles.last(3).each do |article|  %>
-  <%= render 'shared/articles_cards', article: article %>
-  <% end %>
+
+<div class="bottomss d-block d-md-flex">
+  <div>
+    <h3 class="title">More news</h3>
+    <div class="articles-index">
+      <% @articles.last(3).each do |article|  %>
+      <%= render 'shared/articles_cards', article: article %>
+      <% end %>
+    </div>
+  </div>
+  <div class="top-news">
+    <h3 class="title">top news</h3>
+    <ul class="list-group">
+      <% @articles.sample(7).each do |article| %>
+      <li class="list-group-item"><%= link_to article.title, article_path(article) %></li>
+      <% end %>
+    </ul>
+    <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1307&q=80" alt="">
+  </div>
 </div>
-<h3>tambien</h3>
-<div class="articles-index">
-  <% @articles.sample(3).each do |article|  %>
+
+<h3 class="title">Also you can read</h3>
+<div class="articles-index-bottom">
+  <% @articles.sample(4).each do |article|  %>
   <%= render 'shared/articles_cards', article: article %>
   <% end %>
 </div>
