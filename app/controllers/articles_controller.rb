@@ -7,7 +7,6 @@ class ArticlesController < ApplicationController
   end
 
   def show
-
     @articles = Article.all.limit(20).order(created_at: :desc)
   end
 
