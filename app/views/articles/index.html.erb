@@ -7,7 +7,11 @@
 
 <h1> Index articles</h1>
 
-<%= @articles.last.title  %>
+<% @articles.last(1).each do |article|  %>
+<%= link_to article_path(article) do %>
+<%= article.title %>
+<% end %>
+<% end %>
 
 <h1> sexundareio</h1>
 

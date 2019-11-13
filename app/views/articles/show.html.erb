@@ -1,3 +1,63 @@
 <%= render 'shared/navbar' %>
-<h1>Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
+<% if user_signed_in? %>
+<%= link_to "edit", edit_article_path(@article)  %>
+<%end%>
+<div class="article-container">
+  <h2><%= @article.category.name %></h2>
+  <h1><%= @article.title %></h1>
+  <h3><%= @article.subtitle %></h3>
+  <img src="<%= @article.photo1 %> " alt="">
+  <h4><%= @article.footer_1 %></h4>
+  <div class="user-avatar d-flex align-items-center">
+    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80" alt="">
+    <h2>By <%= @article.user.email %></h2>
+  </div>
+  <div class="articles-time ">
+    <p><%= @article.created_at.strftime("%b. %d, %Y  Updated %I:%M %P ET")%></p>
+  </div>
+  <p><%= @article.content_1 %></p>
+  <img src="<%= @article.photo2 %> " alt="">
+  <h4><%= @article.footer_2 %></h4>
+  <p><%= @article.content_2 %></p>
+  <img src="<%= @article.photo3 %> " alt="">
+  <p><%= @article.content_3 %></p>
+</div>
+
+<div class="bottomss d-block d-md-flex">
+  <div>
+    <h3 class="title">More news</h3>
+    <div class="articles-index">
+      <% @articles.last(3).each do |article|  %>
+      <%= render 'shared/articles_cards', article: article %>
+      <% end %>
+    </div>
+  </div>
+  <div class="top-news">
+    <h3 class="title">top news</h3>
+    <ul class="list-group">
+      <% @articles.sample(7).each do |article| %>
+      <li class="list-group-item"><%= link_to article.title, article_path(article) %></li>
+      <% end %>
+    </ul>
+    <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1307&q=80" alt="">
+  </div>
+</div>
+
+<h3 class="title">Also you can read</h3>
+<div class="articles-index-bottom">
+  <% @articles.sample(4).each do |article|  %>
+  <%= render 'shared/articles_cards', article: article %>
+  <% end %>
+</div>
+<div class="articles-footer">
+  <ul class="list-group">
+    <li class="list-group-item"><%= image_tag "https://res.cloudinary.com/dw7ox75dg/image/upload/v1559327622/Captura_de_Pantalla_2019-05-31_a_la_s_15.33.10.png" %></li>
+    <% @categories.each do |category| %>
+    <li class="list-group-item"><%= link_to category.name, category_path(category) %></li>
+    <% end %>
+  </ul>
+</div>
+
+
+
+

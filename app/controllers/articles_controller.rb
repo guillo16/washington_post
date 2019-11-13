@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @articles = Article.all.limit(20).order(created_at: :desc)
   end
 
   def new
@@ -53,6 +54,6 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :subtitle, :content_1, :content_2, :content_3, :content_4, :photo1, :photo2, :photo3)
+    params.require(:article).permit(:title, :subtitle, :content_1, :content_2, :content_3, :content_4, :photo1, :photo2, :photo3, :footer_1, :footer_2)
   end
 end
