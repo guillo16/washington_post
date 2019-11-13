@@ -1,5 +1,5 @@
 <%= render 'shared/navbar' %>
-<h3><%= Time.now.strftime("%b. %d, %Y  Updated %I:%M %P ET") %></h3>
+<h3 class="time"><%= Time.now.strftime("%A, %B %d, %Y") %></h3>
 <div class="main-articles-wrapper d-block d-md-flex">
   <div class="main-articles">
     <% @articles.last(1).each do |article|  %>

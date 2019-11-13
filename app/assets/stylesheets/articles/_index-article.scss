@@ -1,7 +1,8 @@
 .main-articles-wrapper {
   padding-bottom: 10px;
   border-bottom: 5px solid lightgrey;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
+  background-color: white;
 }
 .main-articles {
   padding: 10px;
@@ -26,6 +27,7 @@
 
 
 .secondary-articles {
+
   padding: 10px;
   h2 {
     font-size: 20px;
@@ -41,10 +43,12 @@
 }
 
 .middle-articles {
+  background-color: white;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   padding: 8px;
   grid-gap: 8px;
+  padding-top: 20px;
 
   img {
     width: 100%;
@@ -62,11 +66,19 @@
   }
 }
 
+.time {
+  font-size: 13px;
+  padding: 10px;
+  margin-bottom: 0px;
+}
 
 @media(max-width: 700px){
   .main-articles {
     img {
       height: 100%;
+    }
+    h3 {
+      font-size: 13px;
     }
   }
   .secondary-articles {
